@@ -1,0 +1,55 @@
+
+  <div class='center-align'>
+    <input type="text" placeholder='Filter' style="width: 10em" [(ngModel)]='filter' />
+  </div>
+  <table class="striped highlight">
+
+    <thead>
+      <tr>
+        <th (click)='sortData("author")'>
+          Author
+          <div class="small material-icons float right">{{this.sortColumn === 'author' && this.sortIcon }}</div>
+        </th>
+        <th (click)='sortData("title")'>
+          Title
+          <div class="small material-icons float right">{{this.sortColumn === 'title' && this.sortIcon }}</div>
+        </th>
+        <th (click)='sortData("genre")'>
+          Genre
+          <div class="small material-icons float right">{{this.sortColumn === 'genre' && this.sortIcon }}</div>
+        </th>
+        <th (click)='sortData("price")'>
+          Price
+          <div class="small material-icons float right">{{this.sortColumn === 'price' && this.sortIcon }}</div>
+        </th>
+        <th (click)='sortData("publishDate")'>
+          Publish Date
+          <div class="small material-icons float right">{{this.sortColumn === 'publishDate' && this.sortIcon }}</div>
+        </th>
+        <th>Description</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let book of filteredBooks" key="book.id">
+      <td>{{book.author}}</td>
+      <td>{{book.title}}</td>
+      <td>{{book.genre}}</td>
+      <td>{{book.price}}</td>
+      <td>{{book.publishDate}}</td>
+      <td>
+        <button [ngClass]="['bl-button', 'show-detail']" (click)='showDetails(book)'><i class='small material-icons'>open_in_new</i></button>
+      </td>
+      <td><button [ngClass]="['bl-button', 'delete-item']" (click)='deleteBook(book.id)'><i class='small material-icons'>delete</i></button></td>
+    </tr>
+  </table>
+
+  <div id="showDetailModal" class="modal">
+    <div class="modal-content">
+      <app-book-details *ngIf='selectedBook' [book]='selectedBook' ></app-book-details>  
+    </div>
+    <div class="modal-footer" style="text-align:center;">
+      <a href="!#" class="modal-close close-detail">OK</a>
+    </div>
+  </div>
+
+  

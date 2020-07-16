@@ -1,0 +1,31 @@
+.bl-button {
+    background-color: white;
+    border: none;
+}
+.bl-button:hover {
+    background-color: #068bf9;
+    color: white;
+    border: none;
+}
+.bl-button:active {
+    background-color: #527fc5;
+    border: none;
+} 
+
+.show-detail{
+    color: #068bf9
+}
+
+.delete-item{
+    color: #fd5d5d
+}
+
+.close-detail {
+    background: #068bf9;
+    color: white;
+    border-radius: 4px;
+    padding: .5em;
+    width: 100px;
+    display: inline-block;
+
+}
